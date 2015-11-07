@@ -1,0 +1,8 @@
+INSERT INTO `DB_task`.`Object` (`ID`, `Name`, `Description`) VALUES (0, 'Table', 'Just table.');
+INSERT INTO `DB_task`.`Object` (`ID`, `Name`, `Description`) VALUES (1, 'Cup', 'Just cup.');
+INSERT INTO `DB_task`.`Object` (`ID`, `Name`, `Description`) VALUES (2, 'Coffee', 'Just coffee.');
+
+INSERT INTO `DB_task`.`Relation` (`Object1_ID`, `Object2_ID`, `Relation_description`) VALUES ('0', '1', 'with');
+INSERT INTO `DB_task`.`Relation` (`Object1_ID`, `Object2_ID`, `Relation_description`) VALUES ('1', '0', 'on');
+INSERT INTO `DB_task`.`Relation` (`Object1_ID`, `Object2_ID`, `Relation_description`) VALUES ('1', '2', 'contains');
+INSERT INTO `DB_task`.`Relation` (`Object1_ID`, `Object2_ID`, `Relation_description`) VALUES ('2', '1', 'is in');
