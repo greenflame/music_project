@@ -5,15 +5,20 @@
 		task_id - task to track
 	
 	Script returns json.
-	If no errors, "status" contains task status, "output"(if exists) contains task output,
-	else "error" contains error information.
+	-"status" - "success" or "error"
+	
+	If succes:
+	-"task_status" - ...
+	-"output" - task output if success
+	or
+	-"error_msg" - error information
 */
 
-	include("db_lib.php");
+	include("db_connection.php");
 		
 	if (!isset($_POST["task_id"]) || !is_numeric($_POST["task_id"]))
 	{
-		$resp = array("error" => "invalid post data");
+		$resp = array("status" => "error", "error_msg" => "Invalid post data.");
 		die(json_encode($resp));
 	}
 	
@@ -24,19 +29,13 @@
 	
 	if (!$result)
 	{
-		$resp = array("error" => "db error");
+		$resp = array("status" => "error", "error_msg" => "Db error.");
 		die(json_encode($resp));
 	}
 	
 	if ($row = $result->fetch_assoc())
 	{
-		$resp = array("status" => $row["status"]);
-		
-		if ($row["output"] != NULL)
-		{
-			$resp["output"] = $row["output"];
-		}
-		
+		$resp = array("status" => "success", "task_status" => $row["status"], "output" => $row["output"]);
 		echo(json_encode($resp));
 	}
 	else

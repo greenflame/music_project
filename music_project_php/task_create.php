@@ -5,16 +5,19 @@
 		input - input data
 	
 	Script returns json.
-	If no errors, "task_id" contains id of created task,
-	else "error" contains error information.
+	-"status" - "success" or "error" // request execution level
+	
+	-"task_id" if succes
+	or
+	-"error_msg" - error explanation
 */
 
-	include("db_lib.php");
+	include("db_connection.php");
 
 	// Checking for correct post data
 	if (!isset($_POST["input"]))
 	{
-		$resp = array("error" => "invalid post data");
+		$resp = array("status" => "error", "error_msg" => "Invalid post data.");
 		die(json_encode($resp));
 	}
 
@@ -30,12 +33,12 @@
 	
 	if (!$result)
 	{
-		$resp = array("error" => "db insert error");
+		$resp = array("status" => "error", "error_msg" => "Db insert error.");
 		die(json_encode($resp));
 	}
 	
 	// Return result
-	$resp = array("task_id" => $conn->insert_id);
+	$resp = array("status" => "success", "task_id" => $conn->insert_id);
 	echo(json_encode($resp));
 
 	$conn->close();

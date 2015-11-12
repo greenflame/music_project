@@ -10,16 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../music_project/helloworld/for_redistribution_files_only/helloworld.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar:///Applications/MATLAB/MATLAB_Compiler_Runtime/v84/toolbox/javabuilder/jar/javabuilder.jar!/" />
+          <root url="jar://$MODULE_DIR$/mysql-connector-java-5.1.37-bin.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
