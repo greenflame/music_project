@@ -1,17 +1,17 @@
 <?php
-/*	Script checks task and returns its' output if exists.
+/*	Script checks task and returns its' status and output.
 	
 	Post data:
-		task_id - task to track
+		-"task_id" - task to track
 	
 	Script returns json.
-	-"status" - "success" or "error"
-	
-	If succes:
-	-"task_status" - ...
-	-"output" - task output if success
-	or
-	-"error_msg" - error information
+		-"status" - "success" or "error"
+		
+		If succes:
+		-"task_status" - ...
+		-"output" - task output
+		else
+		-"error_msg" - error information
 */
 
 	include("db_connection.php");

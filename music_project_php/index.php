@@ -27,9 +27,7 @@
 		<button id="btn_task_create">Send to server</button><br>
 		<div id="label_status"></div>
 		
-		<button id="btn_draw_chart">Draw chart</button>
-		<div id="chart_container"></div>
-		
+		<div id="spectrum_container"></div>
 		
 	</body>
 </html>

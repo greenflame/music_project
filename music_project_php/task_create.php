@@ -2,14 +2,15 @@
 /*	Script creates task.
 	
 	Post data:
-		input - input data
+		-"input" - input data
 	
 	Script returns json.
-	-"status" - "success" or "error" // request execution level
-	
-	-"task_id" if succes
-	or
-	-"error_msg" - error explanation
+		-"status" - "success" or "error" // request execution level
+		
+		If success
+		-"task_id"
+		else
+		-"error_msg" - error info
 */
 
 	include("db_connection.php");

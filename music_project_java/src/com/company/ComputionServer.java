@@ -1,6 +1,12 @@
 package com.company;
 
+import com.sun.tools.javac.util.ArrayUtils;
+import jdk.nashorn.internal.objects.ArrayBufferView;
+import jdk.nashorn.internal.parser.JSONParser;
+
 import java.sql.*;
+import java.util.Arrays;
+import java.util.Random;
 
 // CURRENT_TIMESTAMP
 // UPDATE `tasks` SET `finished` = CURRENT_TIMESTAMP WHERE `tasks`.`id` = 51;
@@ -80,12 +86,21 @@ public class ComputionServer {
     // todo move to separate class?
     private String ProcessTask(String input)
     {
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        final int N = 2000;
+        final int BOUND = 100;
+
+        int arr[] = new int[N];
+        Random r = new Random();
+
+        arr[0] = 0;
+
+        for (int i = 1; i < N; i++)
+        {
+            arr[i] =  arr[i - 1] + r.nextInt(7) - 3;
         }
-        return input.toUpperCase();
+
+        String output = String.format("{\"status\":\"success\",\"spectrum\":%s}", Arrays.toString(arr));
+        return output;
     }
 
     public void Start()
@@ -106,7 +121,7 @@ public class ComputionServer {
                     System.out.printf("Task committed.\n");
                 }
 
-                Thread.sleep(5000);
+                Thread.sleep(1000);
             }
         } catch (SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());
