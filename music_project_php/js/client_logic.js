@@ -13,18 +13,18 @@ function task_create(){
 }
 
 function task_crate_callback(data, status)
-{			
+{
 	if (status == "success")	// request transfer
 	{
 		var resp = jQuery.parseJSON(data);
-		
+
 		if (resp.status == "success")	// request execution
-		{	
+		{
 			task_id = resp.task_id;
 
 			onInfo("Task created.");
 			onTaskCreated();
-			
+
 			checkout_interval = setInterval(task_checkout, 1000);	// starting timer
 		}
 		else
@@ -35,7 +35,7 @@ function task_crate_callback(data, status)
 	else
 	{
 		onError("Error request transfer.");
-	}			
+	}
 }
 
 function task_checkout()
@@ -50,9 +50,9 @@ function task_checkout()
 function task_checkout_callback(data, status)
 {
 	if (status == "success")	// request transfer
-	{	
+	{
 		var resp = jQuery.parseJSON(data);
-		
+
 		if (resp.status == "success")	// request execution
 		{
 			// task manager level
@@ -61,7 +61,7 @@ function task_checkout_callback(data, status)
 				onTaskInQueue();
 				return;	// continue waiting
 			}
-			
+
 			if (resp.task_status == "in progress")
 			{
 				onTaskInProgress();
@@ -91,7 +91,7 @@ function task_checkout_callback(data, status)
 	else
 	{
 		clearInterval(checkout_interval);
-		onError("Error request transfer.");		
+		onError("Error request transfer.");
 	}
 }
 
@@ -109,26 +109,26 @@ function onInfo(msg)
 // Handlers
 function onTaskCreated()
 {
-	// $("#label_status").html("Task created.");
+	$("#label_status").html("Task created.");
 }
 
 function onTaskInQueue()
 {
-	// $("#label_status").html("Task in queue.");
+	$("#label_status").html("Task in queue.");
 }
 
 function onTaskInProgress()
 {
-	// $("#label_status").html("Task in progress.");
+	$("#label_status").html("Task in progress.");
 }
 
 function onTaskFinished(output)
 {
-	// $("#label_status").html("Task finished.");
+	$("#label_status").html("Task finished.");
 	$("#output").html(output);
-	
+
 	var result = jQuery.parseJSON(output);
-	
+
 	if (result.status == "success")
 	{
 		drawSpectrum(result.spectrum);

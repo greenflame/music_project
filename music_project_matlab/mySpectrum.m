@@ -2,18 +2,21 @@ function spectrum = mySpectrum(filename)
 
     samplesPerSecond = 10;
     windowSize = 500;
+    lines = 4000;
 
-%     disp('reading file');
+    % Reading file
     [channels, frequency] = audioread(filename);
 
-%     disp('creating spectrogram');
+    % Creating spectrogram
     s = spectrogram(channels(:, 1),...
         frequency / samplesPerSecond + windowSize, windowSize, [], frequency);
 
-%     disp('applying log transform')
+    % Log transform
     sl = log(abs(s) + 1);
-    sl(4000, 1) = 0;    % Expandind matrix
-    sl = sl(1:4000, :);
+    
+    % Adjusting size
+    sl(lines, 1) = 0;    % Expandind matrix
+    sl = sl(1:lines, :); % Narrowing down
 
     spectrum = sum(sl, 2) / size(sl, 2);
 
