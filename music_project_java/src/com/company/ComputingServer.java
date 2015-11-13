@@ -17,8 +17,7 @@ public class ComputingServer {
     private Task GetNextTask() throws SQLException {
         Connection connection = DriverManager.getConnection(CONN_STR);
         Statement statement = connection.createStatement();
-        String sql = "SELECT * FROM tasks WHERE tasks.created =" +
-                "(SELECT min(tasks.created) FROM tasks WHERE tasks.status = 'in queue')";
+        String sql = "SELECT * FROM `tasks` WHERE `status` = 'in queue' ORDER BY `created` LIMIT 1";
         ResultSet resultSet = statement.executeQuery(sql);
 
         Task task = null;
@@ -77,6 +76,7 @@ public class ComputingServer {
 
     public void Start()
     {
+        System.out.println("Server started");
         try {
             while (true) {
                 Task task = GetNextTask();
