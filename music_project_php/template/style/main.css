@@ -1,0 +1,122 @@
+body
+{
+    font-family: 'Roboto', Helvetica, sans-serif;
+	font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	display: block;
+    color: #536e7b;
+	font-weight: 400;
+}
+
+p
+{
+	margin-top: 30px;
+	line-height: 1.75rem;
+	font-weight: 300;	
+	color: rgb(83, 110, 123);
+}
+
+.head
+{
+	max-width: 1170px;
+	min-height: 80px;
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+	padding: 0 30px;
+}
+
+.nav
+{
+	float: right;
+	height: 80px;
+}
+
+.nav-item
+{
+	display: inline-block;
+	margin-left: 15px;
+	margin-top: 33px;
+	
+	text-transform: uppercase;
+	font-size: 15px;
+	color: gray;
+	
+	cursor: pointer;
+}
+
+.nav-item:hover
+{
+	color: rgb(200, 25, 25);
+}
+
+.content-row
+{
+	padding: 90px 0;
+	border-top: 1px solid lightgray;
+}
+
+.content-column
+{
+	display: block;
+	max-width: 1170px;
+	
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0 30px;
+}
+
+.column-container
+{
+	white-space: nowrap;
+}
+
+.column
+{
+	white-space: normal;
+	display: inline-block;
+	width: 50%;
+	box-sizing: border-box;
+	
+	vertical-align: top;
+}
+
+.column-left
+{
+	padding-right: 35px;
+}
+
+.column-right
+{
+	padding-left: 35px;
+}
+
+.try-area
+{
+	background-color: rgb(240, 240, 240);
+	padding: 90px 60px;	
+	text-align: center;
+}
+
+.try-button
+{
+	display: inline-block;
+	padding-top: 11.25px;
+	padding-right: 15px;
+	padding-bottom: 10.5px;
+	padding-left: 15px;
+	
+	font-size: 0.875rem;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	font-weight: 500;
+
+	border-radius: 2px;
+	
+	color: white;
+	background-color: rgb(200, 25, 25);
+}
