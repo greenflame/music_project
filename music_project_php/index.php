@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="style.css"> 
+		<link rel="stylesheet" type="text/css" href="style/style.css"> 
 
 		<script src="js/jquery-2.1.4.min.js"></script>
 		<script src="js/highcharts.js"></script>
@@ -11,23 +11,16 @@
 	<body>
 
 		<h1>Ms project</h1>
-
-		<div>
-			<div class="input_block">				
-				<p>Input</p>
-				<textarea id="input" cols="40" rows="6"></textarea>
-			</div>
-	
-			<div class="input_block">
-				<p>Output</p>
-				<textarea id="output" cols="40" rows="6" disabled></textarea>
-			</div>
-		</div>
 		
-		<button id="btn_task_create">Send to server</button><br>
-		<div id="label_status"></div>
+		<!--file upload form-->
+		<button id="btn_send_file">Send file</button>
+		<form>
+			<input id="input_file" name="file" type="file" />
+		</form>
 		
-		<div id="spectrum_container"></div>
-		
+		<!--output-->
+		<div id="label_status"></div>		
+		<div id="output_container"></div>
+				
 	</body>
 </html>

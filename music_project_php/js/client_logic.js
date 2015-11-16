@@ -1,41 +1,53 @@
 var checkout_interval, task_id;
 
-$(document).ready(function(){
-	$("#btn_task_create").click(task_create);
+// Button click - show file dialog
+$(function(){
+	$("#btn_send_file").click(function(){
+		$("#input_file").trigger("click");
+	});	
 });
 
-function task_create(){
-	$.post("task_create.php",
-	{
-		input: $("#input").val()
-	},
-	task_crate_callback);
+// File dialog callback - file selected
+$(function(){
+	$("#input_file").change(function(){
+		task_create();
+	});
+});
+
+function task_create()
+{
+	var formData = new FormData($('form')[0]);	// todo id 
+	$.ajax({
+		url: 'task_create.php',
+		type: 'POST',
+		success: task_crate_callback,
+		error: function(){ onError("Error sending create request."); },
+		data: formData,
+		
+		cache: false,
+		contentType: false,
+		processData: false
+	});
+	onUploadStart();
 }
 
-function task_crate_callback(data, status)
-{
-	if (status == "success")	// request transfer
-	{
-		var resp = jQuery.parseJSON(data);
+function task_crate_callback(data)
+{			
+	var resp = jQuery.parseJSON(data);
+	
+	if (resp.status == "success")	// request execution
+	{	
+		task_id = resp.task_id;
 
-		if (resp.status == "success")	// request execution
-		{
-			task_id = resp.task_id;
-
-			onInfo("Task created.");
-			onTaskCreated();
-
-			checkout_interval = setInterval(task_checkout, 1000);	// starting timer
-		}
-		else
-		{
-			onError("Error request execution.");
-		}
+		onInfo("Task created.");
+		onTaskCreated();
+		
+		checkout_interval = setInterval(task_checkout, 1000);	// starting timer
 	}
 	else
 	{
-		onError("Error request transfer.");
-	}
+		onError("Error request execution.");
+	}		
 }
 
 function task_checkout()
@@ -50,9 +62,9 @@ function task_checkout()
 function task_checkout_callback(data, status)
 {
 	if (status == "success")	// request transfer
-	{
+	{	
 		var resp = jQuery.parseJSON(data);
-
+		
 		if (resp.status == "success")	// request execution
 		{
 			// task manager level
@@ -61,7 +73,7 @@ function task_checkout_callback(data, status)
 				onTaskInQueue();
 				return;	// continue waiting
 			}
-
+			
 			if (resp.task_status == "in progress")
 			{
 				onTaskInProgress();
@@ -91,7 +103,7 @@ function task_checkout_callback(data, status)
 	else
 	{
 		clearInterval(checkout_interval);
-		onError("Error request transfer.");
+		onError("Error request transfer.");		
 	}
 }
 
@@ -107,6 +119,11 @@ function onInfo(msg)
 }
 
 // Handlers
+function onUploadStart()
+{
+	$("#label_status").html("Upload started.");
+}
+
 function onTaskCreated()
 {
 	$("#label_status").html("Task created.");
@@ -125,13 +142,13 @@ function onTaskInProgress()
 function onTaskFinished(output)
 {
 	$("#label_status").html("Task finished.");
-	$("#output").html(output);
-
+	$("#output_container").html(output);
+	
 	var result = jQuery.parseJSON(output);
-
+	
 	if (result.status == "success")
 	{
-		drawSpectrum(result.spectrum);
+		// drawSpectrum(result.spectrum);
 	}
 	else
 	{
