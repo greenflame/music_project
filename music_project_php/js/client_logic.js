@@ -4,7 +4,7 @@ var checkout_interval, task_id;
 $(function(){
 	$("#btn_send_file").click(function(){
 		$("#input_file").trigger("click");
-	});	
+	});
 });
 
 // File dialog callback - file selected
@@ -18,7 +18,7 @@ function task_create()
 {
 	var formData = new FormData($('form')[0]);	// todo id 
 	$.ajax({
-		url: 'task_create.php',
+		url: 'ajax/task_create.php',
 		type: 'POST',
 		success: task_crate_callback,
 		error: function(){ onError("Error sending create request."); },
@@ -52,7 +52,7 @@ function task_crate_callback(data)
 
 function task_checkout()
 {
-	$.post("task_checkout.php",
+	$.post("ajax/task_checkout.php",
 	{
 		task_id: task_id
 	},
@@ -62,7 +62,7 @@ function task_checkout()
 function task_checkout_callback(data, status)
 {
 	if (status == "success")	// request transfer
-	{	
+	{
 		var resp = jQuery.parseJSON(data);
 		
 		if (resp.status == "success")	// request execution

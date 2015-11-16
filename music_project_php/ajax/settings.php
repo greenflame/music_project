@@ -6,5 +6,5 @@
 	$dbname = "music_project";
 	
 	// Storage info
-	$storagePath = "uploads/";
+	$storagePath = "../uploads/";
 ?>
