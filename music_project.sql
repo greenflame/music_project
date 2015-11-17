@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 12, 2015 at 04:44 PM
+-- Generation Time: Nov 17, 2015 at 09:44 AM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -19,6 +19,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `music_project`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `audiofiles`
+--
+
+CREATE TABLE `audiofiles` (
+  `id` int(11) NOT NULL,
+  `storage_name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `real_name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `features` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -40,6 +54,12 @@ CREATE TABLE `tasks` (
 --
 
 --
+-- Indexes for table `audiofiles`
+--
+ALTER TABLE `audiofiles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tasks`
 --
 ALTER TABLE `tasks`
@@ -50,10 +70,15 @@ ALTER TABLE `tasks`
 --
 
 --
+-- AUTO_INCREMENT for table `audiofiles`
+--
+ALTER TABLE `audiofiles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
