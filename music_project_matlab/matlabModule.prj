@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="1669107220" file="g:\music_project\music_project_matlab\matlabModule.prj" location="g:\music_project\music_project_matlab" name="matlabModule" preferred-package-location="g:\music_project\music_project_matlab\matlabModule\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.library" target-name="Library Compiler">
+  <configuration build-checksum="1022399812" file="g:\music_project\music_project_matlab\matlabModule.prj" location="g:\music_project\music_project_matlab" name="matlabModule" preferred-package-location="g:\music_project\music_project_matlab\matlabModule\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.library" target-name="Library Compiler">
     <param.appname>matlabModule</param.appname>
     <param.icon />
     <param.icons />
@@ -48,7 +48,7 @@
     <param.net.tsa.assembly />
     <param.net.tsa.interface />
     <param.net.tsa.namespace>matlabModule</param.net.tsa.namespace>
-    <param.net.tsa.superclass>SpectrumSolver</param.net.tsa.superclass>
+    <param.net.tsa.superclass>Indexer</param.net.tsa.superclass>
     <param.net.tsa.metadata />
     <param.net.tsa.metadata.assembly>C:\Users\Serge.SCRED\Documents\MATLAB</param.net.tsa.metadata.assembly>
     <unset>
@@ -98,12 +98,12 @@
       <param.net.tsa.metadata.assembly />
     </unset>
     <fileset.exports>
-      <file>${PROJECT_ROOT}\mySpectrum.m</file>
+      <file>${PROJECT_ROOT}\analyse.m</file>
     </fileset.exports>
     <fileset.classes>
       <entity.package name="">
-        <entity.class name="SpectrumSolver">
-          <file>${PROJECT_ROOT}\mySpectrum.m</file>
+        <entity.class name="Indexer">
+          <file>${PROJECT_ROOT}\analyse.m</file>
         </entity.class>
       </entity.package>
     </fileset.classes>

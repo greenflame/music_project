@@ -1,10 +1,10 @@
 <?php
-	// Conection info
+	// Connection info
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
 	$dbname = "music_project";
-	
+
 	// Storage info
-	$storagePath = "../uploads/";
+	$storagePath = "..\\storage\\";
 ?>

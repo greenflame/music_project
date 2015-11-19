@@ -1,0 +1,3 @@
+Settins files:
+- web_app/ajax/settings.php
+- settings class in java server

@@ -1,3 +1,5 @@
+/*general*/
+
 body
 {
     font-family: 'Roboto', Helvetica, sans-serif;
@@ -15,90 +17,101 @@ p
 {
 	margin-top: 30px;
 	line-height: 1.75rem;
-	font-weight: 300;	
+	font-weight: 300;
 	color: rgb(83, 110, 123);
 }
 
-.head
+/*header*/
+
+.header
 {
 	max-width: 1170px;
 	min-height: 80px;
-	
+
 	margin-left: auto;
 	margin-right: auto;
-	
+
 	padding: 0 30px;
 }
 
-.nav
+.navigation
 {
 	float: right;
 	height: 80px;
 }
 
-.nav-item
+.navigation-item
 {
 	display: inline-block;
 	margin-left: 15px;
 	margin-top: 33px;
-	
+
 	text-transform: uppercase;
 	font-size: 15px;
 	color: gray;
-	
+
 	cursor: pointer;
 }
 
-.nav-item:hover
+.navidation-item:hover
 {
 	color: rgb(200, 25, 25);
 }
 
-.content-row
+/*data blocks*/
+
+.block-outer-first
 {
 	padding: 90px 0;
 	border-top: 1px solid lightgray;
 }
 
-.content-column
+.block-outer
+{
+	padding: 0 0 90px 0;
+}
+
+.block-inner
 {
 	display: block;
 	max-width: 1170px;
-	
+
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0 30px;
 }
 
-.column-container
+.block-column-container
 {
 	white-space: nowrap;
 }
 
-.column
+.block-column
 {
 	white-space: normal;
 	display: inline-block;
 	width: 50%;
 	box-sizing: border-box;
-	
+
 	vertical-align: top;
 }
 
-.column-left
+.block-column-left
 {
 	padding-right: 35px;
 }
 
-.column-right
+.block-column-right
 {
 	padding-left: 35px;
 }
 
+/*other*/
+
 .try-area
 {
 	background-color: rgb(240, 240, 240);
-	padding: 90px 60px;	
+	padding: 90px 60px;
 	text-align: center;
 }
 
@@ -109,14 +122,14 @@ p
 	padding-right: 15px;
 	padding-bottom: 10.5px;
 	padding-left: 15px;
-	
+
 	font-size: 0.875rem;
 	letter-spacing: 0.02em;
 	text-transform: uppercase;
 	font-weight: 500;
 
 	border-radius: 2px;
-	
+
 	color: white;
 	background-color: rgb(200, 25, 25);
 }
@@ -126,9 +139,51 @@ p
 	cursor: pointer;
 }
 
+.recomendations-title
+{
+	padding-bottom: 50px;
+	margin-top: 8px;
+}
+
 .hidden_input
 {
     display:block;
     height:0;
     width:0;
+}
+
+/*test*/
+
+.track-area
+{
+	padding-bottom: 20px;
+	display: block;
+}
+
+.play-button
+{
+	vertical-align: middle;
+
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+.track-name
+{
+	line-height: 1.75rem;
+	font-weight: 500;
+	color: rgb(83, 110, 123);
+
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.time
+{
+	line-height: 1.25rem;
+	font-weight: 300;
+	color: rgb(83, 110, 123);
+
+	vertical-align: middle;
+	float: right;
 }
