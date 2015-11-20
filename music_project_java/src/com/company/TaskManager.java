@@ -1,9 +1,19 @@
 package com.company;
 
+import com.mathworks.toolbox.javabuilder.MWNumericArray;
+import matlabModule.Indexer;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import java.sql.*;
+import java.util.Arrays;
+import java.util.Locale;
 
 /**
  * Created by Alexander on 10/11/15.
+ * Main computing server class
  */
 public class TaskManager {
     /**
@@ -75,44 +85,164 @@ public class TaskManager {
         connection.close();
     }
 
+    /**
+     * Matlab index function wrapper
+     * @param fileName file to index
+     * @return feature vector
+     * @throws Exception
+     */
+    private float[] Index(String fileName) throws Exception {
+        Indexer c = new Indexer();
+        MWNumericArray res_mw = (MWNumericArray) c.analyse(1, fileName)[0];
+
+        float[][] res = (float[][])res_mw.toFloatArray();
+
+        res_mw.dispose();
+        c.dispose();
+
+        return res[0];
+    }
+
+    /**
+     * @param file_id id of record
+     * @return file record as class
+     * @throws SQLException
+     */
+    private AudioFile GetAudioFile(long file_id) throws SQLException {
+        Connection connection = DriverManager.getConnection(Settings.connectionString());
+        Statement statement = connection.createStatement();
+        String sql = String.format("SELECT * FROM `audiofiles` WHERE `id` = %d", file_id);
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        AudioFile audioFile = null;
+
+        if (resultSet.next()) {
+            long id = resultSet.getLong("id");
+            String storage_name = resultSet.getString("storage_name");
+            String real_name = resultSet.getString("real_name");
+            String status = resultSet.getString("status");
+
+            float p1 = resultSet.getFloat("p1");
+            float p2 = resultSet.getFloat("p2");
+            float p3 = resultSet.getFloat("p3");
+            float p4 = resultSet.getFloat("p4");
+            float p5 = resultSet.getFloat("p5");
+            float p6 = resultSet.getFloat("p6");
+
+            audioFile = new AudioFile(id, storage_name, real_name, status,
+                    new float[] {p1, p2, p3, p4, p5, p6});
+        }
+
+        resultSet.close();
+        statement.close();
+        connection.close();
+
+        return audioFile;
+    }
+
+    /**
+     * @param id id file to update
+     * @param features new features vector
+     * @throws SQLException
+     */
+    private void UpdateAudioFileFeatures(long id, float[] features) throws SQLException {
+        Connection connection = DriverManager.getConnection(Settings.connectionString());
+        Statement statement = connection.createStatement();
+        String sql = String.format(Locale.US, "UPDATE `audiofiles`" +
+                        "SET `p1` = '%f', `p2` = '%f', `p3` = '%f', `p4` = '%f', `p5` = '%f', `p6` = '%f'" +
+                        "WHERE `id` = %d",
+                features[0], features[1], features[2], features[3], features[4], features[5], id);
+
+        statement.execute(sql);
+
+        statement.close();
+        connection.close();
+    }
+
+    public String ComputeOutput(String input_s) throws TaskManagerException, SQLException {
+        JSONParser parser = new JSONParser();
+        JSONObject input = null;
+        try {
+            input = (JSONObject) parser.parse(input_s);
+        } catch (ParseException e) {
+            throw new TaskManagerException("Can not parse input json.");
+        }
+
+        if (input.containsKey("task") &&
+                input.get("task").equals("analyse") &&
+                input.containsKey("file_id")) {
+            long fileId = (long) input.get("file_id");
+
+            AudioFile audioFile = GetAudioFile(fileId);
+
+            float[] features = null;
+            try {
+                features = Index(Settings.STORAGE_PATH + audioFile.getStorage_name());
+            } catch (Exception e) {
+                throw new TaskManagerException("Indexation error.");
+            }
+
+            UpdateAudioFileFeatures(fileId, features);
+
+            JSONObject output = new JSONObject();
+            JSONArray features_j = new JSONArray();
+            for (int i = 0; i < features.length; i++) {
+                features_j.add(features[i]);
+            }
+
+            output.put("features", features_j);
+
+            return output.toJSONString();
+        } else {
+            throw new TaskManagerException("Unknown task");
+        }
+    }
+
+    public void ProcessNextTask() throws SQLException {
+
+        // Checking for next task
+        Task task = GetNextTask();
+
+        // Task exists
+        if (task != null) {
+            System.out.printf("Task captured. id: %d.\n", task.getId());
+
+            // Updating status
+            UpdateTaskStatus(task.getId(), "in progress");
+
+            try {
+                String output = ComputeOutput(task.getInput());
+
+                FinishTask(task.getId(), "success", output);
+                System.out.printf("Task committed. Success.\n");
+            } catch (TaskManagerException e) {
+                FinishTask(task.getId(), "error", "");
+                System.out.printf("Task committed. Error.\n");
+            }
+
+        }   // Task exists
+    }
+
     public void Start()
     {
         System.out.println("Server started");
 
-        try {
-            while (true) {
-                Task task = GetNextTask();
-
-                if (task != null) { // Task exists
-                    System.out.printf("Task captured. id: %d.\n", task.getId());
-                    UpdateTaskStatus(task.getId(), "in progress");
-
-                    String output = "";
-                    boolean success = true;
-
-                    try {
-                        output = TaskExecutor.ExecuteTask(task.getInput());
-                    } catch (TaskExecutorException ex) {
-                        System.out.println("Task executor exception: " + ex.getMessage());
-                        success = false;
-                    }
-
-                    if (success) {
-                        FinishTask(task.getId(), "success", output);
-                        System.out.printf("Task committed.\n");
-                    } else {
-                        FinishTask(task.getId(), "error", "");
-                        System.out.printf("Task processed with errors.\n");
-                    }
-
-                }
-
-                Thread.sleep(1000);
+        // Main loop
+        while (true) {
+            try {
+                ProcessNextTask();
+            } catch (SQLException e) {
+                System.out.println("SQL Exception: " + e.getMessage());
             }
-        } catch (Exception ex) {
-            System.out.println("Task manager exception: " + ex.getMessage());
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("Task manager tread interrupted. " + e.getMessage());
+            }
         }
     }
+
 }
 
 class Task {
@@ -154,5 +284,49 @@ class Task {
 
     public String getStatus() {
         return status;
+    }
+}
+
+class AudioFile {
+    private long id;
+    private String storage_name;
+    private String real_name;
+    private String status;
+    private float[] features;
+
+    public AudioFile(long id, String storage_name, String real_name, String status, float[] features) {
+        this.id = id;
+        this.storage_name = storage_name;
+        this.real_name = real_name;
+        this.status = status;
+        this.features = features;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getStorage_name() {
+        return storage_name;
+    }
+
+    public String getReal_name() {
+        return real_name;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public float[] getFeatures() {
+        return Arrays.copyOf(features, features.length);
+    }
+}
+
+class TaskManagerException extends Exception {
+    public TaskManagerException() {}
+
+    public TaskManagerException(String message) {
+        super(message);
     }
 }
