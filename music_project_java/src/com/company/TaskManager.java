@@ -161,7 +161,7 @@ public class TaskManager {
 
     public String ComputeOutput(String input_s) throws TaskManagerException, SQLException {
         JSONParser parser = new JSONParser();
-        JSONObject input = null;
+        JSONObject input;
         try {
             input = (JSONObject) parser.parse(input_s);
         } catch (ParseException e) {
@@ -175,7 +175,7 @@ public class TaskManager {
 
             AudioFile audioFile = GetAudioFile(fileId);
 
-            float[] features = null;
+            float[] features;
             try {
                 features = Index(Settings.STORAGE_PATH + audioFile.getStorage_name());
             } catch (Exception e) {

@@ -1,5 +1,10 @@
 var checkout_interval, task_id;
 
+// Hide data container
+$(function(){
+	$("#data_container").hide();
+});
+
 // Button click - show file dialog
 $(function(){
 	$("#btn_send_file").click(function(){
@@ -65,7 +70,7 @@ function task_checkout_callback(data, status)
 	{
 		var resp = jQuery.parseJSON(data);
 
-		if (resp.status == "success")	// request execution
+		if (resp.request_status == "success")	// request execution
 		{
 			// task manager level
 			if (resp.task_status == "in queue")
@@ -143,103 +148,21 @@ function onTaskInProgress()
 
 function onTaskFinished(output)
 {
+	// Status label
 	$("#label_status").html("Task finished.");
-	$("#output_container").html(output);
+
+	// Show data container
+	$("#data_container").show();
 
 	var result = jQuery.parseJSON(output);
 
-	if (result.status == "success")
-	{
-		drawSpectrum(result.spectrum);
-	}
-	else
-	{
-		onError("Task executor error.");
-	}
+	result.features[0] /= 20;
+
+	featuresChart(result.features, "hello, world!");
 }
 
-function drawSpectrum(data){
-	$('#output_container_1').highcharts({
-		title: {
-			text: 'Title',
-		},
-		subtitle: {
-			text: 'Subtitle',
-		},
-		xAxis: {
-			title: {
-				text: 'x axis',
-			},
-		},
-		yAxis: {
-			title: {
-				text: 'y axis'
-			},
-		},
-		legend: {
-			layout: 'vertical',
-			align: 'right',
-			verticalAlign: 'middle',
-			borderWidth: 0
-		},
-		series: [{
-			name: 'data',
-			color: '#C81919',
-			data: data
-		}]
-	});
-};
-
-// Test charts
-$(function(){
-	lineChart($("#output_container_1"));
-	spideWebChart($("#output_container_2"));
-	// g1($("#output_container_3"));
-});
-
-function lineChart(container){
-	container.highcharts({
-		title: {
-			text: 'Spectrum',
-			// x: -11,
-			// align: "left",
-			style:
-			{
-				color: "#536e7b",
-				fontFamily: "Roboto",
-				fontWeight: "400",
-				fontSize: "24px"
-			},
-		},
-		subtitle: {
-			text: 'Subtitle',
-		},
-		xAxis: {
-			title: {
-				text: 'Frequency(Hz)',
-			},
-		},
-		yAxis: {
-			title: {
-				text: 'Level(dB)'
-			},
-		},
-		legend: {
-			layout: 'vertical',
-			align: 'right',
-			verticalAlign: 'middle',
-			borderWidth: 0
-		},
-		series: [{
-			name: 'Soundtrack name',
-			color: '#C81919',
-			data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-		}]
-	});
-};
-
-function spideWebChart(c) {
-	c.highcharts({
+function featuresChart(features, name) {
+	$("#features_container").highcharts({
         chart: {
             polar: true,
             type: 'line'
@@ -277,21 +200,17 @@ function spideWebChart(c) {
 
         tooltip: {
             shared: true,
-            pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>_{point.y:,.0f}</b><br/>'
         },
 
         legend: {
-            // align: 'right',
-            // verticalAlign: 'top',
-            // y: 70,
-            // layout: 'vertical'
             enabled: false,
         },
 
         series: [{
-            name: 'Allocated Budget Allocated Budget Allocated Budget',
+            name: name,
 			color: '#C81919',
-            data: [43000, 19000, 60000, 35000, 17000, 10000],
+            data: features,
             pointPlacement: 'on'
         }]
 

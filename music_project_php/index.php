@@ -49,12 +49,12 @@
 			</div>
 		</div>
 
-		<div class="block-outer">
+		<div class="block-outer" id="data_container">
 			<div class="block-inner">
 
 				<div class="block-column-container">
 					<div class="block-column block-column-left">
-		                <div id="output_container_2"></div>
+		                <div id="features_container"></div>
 					</div>
 					<div class="block-column block-column-right">
 		                <h2 class="recomendations-title">Similar tracks</h2>
@@ -80,12 +80,7 @@
 
 			</div>
 		</div>
-<!--
-		<div class="block-outer">
-			<div class="block-inner">
-				<div id="output_container_1"></div>
-            </div>
-        </div>-->
+
 
 	</body>
 </html>

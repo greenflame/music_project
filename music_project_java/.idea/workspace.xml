@@ -50,21 +50,15 @@
       <file leaf-file-name="TaskManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/TaskManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38356164">
-              <caret line="218" column="54" selection-start-line="218" selection-start-column="54" selection-end-line="218" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.4937107">
+              <caret line="186" column="49" selection-start-line="186" selection-start-column="49" selection-end-line="186" selection-end-column="49" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-                <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-                <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-                <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-                <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-                <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-                <element signature="class#Task#0" expanded="false" />
-                <element signature="class#AudioFile#0" expanded="false" />
-                <element signature="class#TaskManagerException#0" expanded="false" />
-                <element signature="e#9824#9825#0" expanded="true" />
-                <element signature="e#9854#9855#0" expanded="true" />
+                <element signature="e#8719#8720#0" expanded="true" />
+                <element signature="e#8749#8750#0" expanded="true" />
+                <element signature="e#8787#8788#0" expanded="true" />
+                <element signature="e#8818#8819#0" expanded="true" />
+                <element signature="e#8851#8852#0" expanded="true" />
+                <element signature="e#8880#8881#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,9 +128,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="width" value="1436" />
-    <option name="height" value="900" />
+    <option name="width" value="960" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -163,8 +156,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -243,7 +236,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -528,32 +521,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="0" width="1436" height="900" extended-state="6" />
+    <frame x="0" y="0" width="960" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897604" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.48294243" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27623126" sideWeight="0.50852877" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27668846" sideWeight="0.5522388" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14275765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972324" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14222223" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27623126" sideWeight="0.4914712" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32869378" sideWeight="0.48294243" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27730194" sideWeight="0.5522388" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27623126" sideWeight="0.4914712" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972324" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -586,6 +579,53 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/server_jar/start.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="27" selection-start-line="0" selection-start-column="27" selection-end-line="0" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/TaskManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Settings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mt2.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mt2.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -615,18 +655,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-            <element signature="class#Task#0" expanded="false" />
-            <element signature="class#AudioFile#0" expanded="false" />
-            <element signature="class#TaskManagerException#0" expanded="false" />
-            <element signature="e#9824#9825#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -668,18 +702,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-            <element signature="class#Task#0" expanded="false" />
-            <element signature="class#AudioFile#0" expanded="false" />
-            <element signature="class#TaskManagerException#0" expanded="false" />
-            <element signature="e#9824#9825#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -721,18 +749,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="114" column="6" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="6" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-            <element signature="class#Task#0" expanded="false" />
-            <element signature="class#AudioFile#0" expanded="false" />
-            <element signature="class#TaskManagerException#0" expanded="false" />
-            <element signature="e#9824#9825#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -774,18 +796,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="114" column="6" selection-start-line="114" selection-start-column="6" selection-end-line="114" selection-end-column="6" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-            <element signature="class#Task#0" expanded="false" />
-            <element signature="class#AudioFile#0" expanded="false" />
-            <element signature="class#TaskManagerException#0" expanded="false" />
-            <element signature="e#9824#9825#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -835,18 +851,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-            <element signature="class#Task#0" expanded="false" />
-            <element signature="class#AudioFile#0" expanded="false" />
-            <element signature="class#TaskManagerException#0" expanded="false" />
-            <element signature="e#9824#9825#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -880,18 +890,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-            <element signature="class#Task#0" expanded="false" />
-            <element signature="class#AudioFile#0" expanded="false" />
-            <element signature="class#TaskManagerException#0" expanded="false" />
-            <element signature="e#9824#9825#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -917,18 +921,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="50" column="59" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-            <element signature="class#Task#0" expanded="false" />
-            <element signature="class#AudioFile#0" expanded="false" />
-            <element signature="class#TaskManagerException#0" expanded="false" />
-            <element signature="e#9824#9825#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -954,18 +952,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-            <element signature="class#Task#0" expanded="false" />
-            <element signature="class#AudioFile#0" expanded="false" />
-            <element signature="class#TaskManagerException#0" expanded="false" />
-            <element signature="e#9824#9825#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1028,21 +1020,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/TaskManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38356164">
-          <caret line="218" column="54" selection-start-line="218" selection-start-column="54" selection-end-line="218" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.4937107">
+          <caret line="186" column="49" selection-start-line="186" selection-start-column="49" selection-end-line="186" selection-end-column="49" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#GetNextTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateTaskStatus#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#FinishTask#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#Index#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#GetAudioFile#0;class#TaskManager#0" expanded="false" />
-            <element signature="method#UpdateAudioFileFeatures#0;class#TaskManager#0" expanded="false" />
-            <element signature="class#Task#0" expanded="false" />
-            <element signature="class#AudioFile#0" expanded="false" />
-            <element signature="class#TaskManagerException#0" expanded="false" />
-            <element signature="e#9824#9825#0" expanded="true" />
-            <element signature="e#9854#9855#0" expanded="true" />
+            <element signature="e#8719#8720#0" expanded="true" />
+            <element signature="e#8749#8750#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8818#8819#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8880#8881#0" expanded="true" />
           </folding>
         </state>
       </provider>
