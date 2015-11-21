@@ -140,23 +140,49 @@ public class TaskManager {
         return audioFile;
     }
 
-    /**
-     * @param id id file to update
-     * @param features new features vector
-     * @throws SQLException
-     */
-    private void UpdateAudioFileFeatures(long id, float[] features) throws SQLException {
+    private void UpdateAudioFileStatus(long id, String status) throws SQLException {
         Connection connection = DriverManager.getConnection(Settings.connectionString());
         Statement statement = connection.createStatement();
-        String sql = String.format(Locale.US, "UPDATE `audiofiles`" +
-                        "SET `p1` = '%f', `p2` = '%f', `p3` = '%f', `p4` = '%f', `p5` = '%f', `p6` = '%f'" +
-                        "WHERE `id` = %d",
-                features[0], features[1], features[2], features[3], features[4], features[5], id);
+
+        String sql = String.format("UPDATE `music_project`.`audiofiles` SET `status` = '%s' WHERE `audiofiles`.`id` = %d",
+                status, id);
 
         statement.execute(sql);
 
         statement.close();
         connection.close();
+    }
+
+    private void FinishAudioFile(long id, String status, float[] features) throws SQLException {
+        Connection connection = DriverManager.getConnection(Settings.connectionString());
+        Statement statement = connection.createStatement();
+        String sql = String.format(Locale.US, "UPDATE `audiofiles`" +
+                "SET `status` = '%s', `finished` = CURRENT_TIMESTAMP," +
+                "`p1` = '%f', `p2` = '%f', `p3` = '%f', `p4` = '%f', `p5` = '%f', `p6` = '%f'" +
+                "WHERE `id` = %d",
+                status, features[0], features[1], features[2], features[3], features[4], features[5], id);
+
+        statement.execute(sql);
+
+        statement.close();
+        connection.close();
+    }
+
+    private void Index(long id) throws SQLException, TaskManagerException {
+        AudioFile audioFile = GetAudioFile(id);
+        UpdateAudioFileStatus(id, "in progress");
+
+        float[] features;
+        try {
+            System.out.printf("Indexation started. File id: %d.\n", id);
+            features = Index(Settings.STORAGE_PATH + audioFile.getStorage_name());
+            FinishAudioFile(id, "success", features);
+            System.out.println("Indexation success.");
+        } catch (Exception e) {
+            FinishAudioFile(id, "indexation error", new float[] { 0, 0, 0, 0, 0, 0 });
+            System.out.println("Indexation error.");
+            throw new TaskManagerException("Indexation error.");
+        }
     }
 
     public String ComputeOutput(String input_s) throws TaskManagerException, SQLException {
@@ -173,16 +199,8 @@ public class TaskManager {
                 input.containsKey("file_id")) {
             long fileId = (long) input.get("file_id");
 
-            AudioFile audioFile = GetAudioFile(fileId);
-
-            float[] features;
-            try {
-                features = Index(Settings.STORAGE_PATH + audioFile.getStorage_name());
-            } catch (Exception e) {
-                throw new TaskManagerException("Indexation error.");
-            }
-
-            UpdateAudioFileFeatures(fileId, features);
+            Index(fileId);
+            float[] features = GetAudioFile(fileId).getFeatures();
 
             JSONObject output = new JSONObject();
             JSONArray features_j = new JSONArray();
