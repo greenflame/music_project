@@ -13,6 +13,9 @@ public class Settings {
     // Storage info
     static final String STORAGE_PATH = "g:\\http\\ask\\ms\\alpha\\storage\\";
 
+    // Recommendation system settings
+    static final int RECOMMENDATION_FILES_COUNT = 3;
+
     // Useful functions
     static public String connectionString() {
         return String.format("jdbc:mysql://%s/%s?user=%s&password=%s",

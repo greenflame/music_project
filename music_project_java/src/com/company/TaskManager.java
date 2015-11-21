@@ -85,106 +85,6 @@ public class TaskManager {
         connection.close();
     }
 
-    /**
-     * Matlab index function wrapper
-     * @param fileName file to index
-     * @return feature vector
-     * @throws Exception
-     */
-    private float[] Index(String fileName) throws Exception {
-        Indexer c = new Indexer();
-        MWNumericArray res_mw = (MWNumericArray) c.analyse(1, fileName)[0];
-
-        float[][] res = (float[][])res_mw.toFloatArray();
-
-        res_mw.dispose();
-        c.dispose();
-
-        return res[0];
-    }
-
-    /**
-     * @param file_id id of record
-     * @return file record as class
-     * @throws SQLException
-     */
-    private AudioFile GetAudioFile(long file_id) throws SQLException {
-        Connection connection = DriverManager.getConnection(Settings.connectionString());
-        Statement statement = connection.createStatement();
-        String sql = String.format("SELECT * FROM `audiofiles` WHERE `id` = %d", file_id);
-        ResultSet resultSet = statement.executeQuery(sql);
-
-        AudioFile audioFile = null;
-
-        if (resultSet.next()) {
-            long id = resultSet.getLong("id");
-            String storage_name = resultSet.getString("storage_name");
-            String real_name = resultSet.getString("real_name");
-            String status = resultSet.getString("status");
-
-            float p1 = resultSet.getFloat("p1");
-            float p2 = resultSet.getFloat("p2");
-            float p3 = resultSet.getFloat("p3");
-            float p4 = resultSet.getFloat("p4");
-            float p5 = resultSet.getFloat("p5");
-            float p6 = resultSet.getFloat("p6");
-
-            audioFile = new AudioFile(id, storage_name, real_name, status,
-                    new float[] {p1, p2, p3, p4, p5, p6});
-        }
-
-        resultSet.close();
-        statement.close();
-        connection.close();
-
-        return audioFile;
-    }
-
-    private void UpdateAudioFileStatus(long id, String status) throws SQLException {
-        Connection connection = DriverManager.getConnection(Settings.connectionString());
-        Statement statement = connection.createStatement();
-
-        String sql = String.format("UPDATE `music_project`.`audiofiles` SET `status` = '%s' WHERE `audiofiles`.`id` = %d",
-                status, id);
-
-        statement.execute(sql);
-
-        statement.close();
-        connection.close();
-    }
-
-    private void FinishAudioFile(long id, String status, float[] features) throws SQLException {
-        Connection connection = DriverManager.getConnection(Settings.connectionString());
-        Statement statement = connection.createStatement();
-        String sql = String.format(Locale.US, "UPDATE `audiofiles`" +
-                "SET `status` = '%s', `finished` = CURRENT_TIMESTAMP," +
-                "`p1` = '%f', `p2` = '%f', `p3` = '%f', `p4` = '%f', `p5` = '%f', `p6` = '%f'" +
-                "WHERE `id` = %d",
-                status, features[0], features[1], features[2], features[3], features[4], features[5], id);
-
-        statement.execute(sql);
-
-        statement.close();
-        connection.close();
-    }
-
-    private void Index(long id) throws SQLException, TaskManagerException {
-        AudioFile audioFile = GetAudioFile(id);
-        UpdateAudioFileStatus(id, "in progress");
-
-        float[] features;
-        try {
-            System.out.printf("Indexation started. File id: %d.\n", id);
-            features = Index(Settings.STORAGE_PATH + audioFile.getStorage_name());
-            FinishAudioFile(id, "success", features);
-            System.out.println("Indexation success.");
-        } catch (Exception e) {
-            FinishAudioFile(id, "indexation error", new float[] { 0, 0, 0, 0, 0, 0 });
-            System.out.println("Indexation error.");
-            throw new TaskManagerException("Indexation error.");
-        }
-    }
-
     public String ComputeOutput(String input_s) throws TaskManagerException, SQLException {
         JSONParser parser = new JSONParser();
         JSONObject input;
@@ -199,8 +99,13 @@ public class TaskManager {
                 input.containsKey("file_id")) {
             long fileId = (long) input.get("file_id");
 
-            Index(fileId);
-            float[] features = GetAudioFile(fileId).getFeatures();
+            try {
+                AudioManager.IndexById(fileId);
+            } catch (AudioManagerException e) {
+                throw new TaskManagerException("Indexation error.");
+            }
+
+            float[] features = AudioManager.GetAudioFile(fileId).getFeatures();
 
             JSONObject output = new JSONObject();
             JSONArray features_j = new JSONArray();
@@ -263,88 +168,3 @@ public class TaskManager {
 
 }
 
-class Task {
-    private long id;
-    private String input;
-    private String output;
-    private Timestamp created;
-    private Timestamp finished;
-    private String status;
-
-    public Task(long id, String input, String output, Timestamp created, Timestamp finished, String status) {
-        this.id = id;
-        this.input = input;
-        this.output = output;
-        this.created = created;
-        this.finished = finished;
-        this.status = status;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getInput() {
-        return input;
-    }
-
-    public String getOutput() {
-        return output;
-    }
-
-    public Timestamp getCreated() {
-        return created;
-    }
-
-    public Timestamp getFinished() {
-        return finished;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-}
-
-class AudioFile {
-    private long id;
-    private String storage_name;
-    private String real_name;
-    private String status;
-    private float[] features;
-
-    public AudioFile(long id, String storage_name, String real_name, String status, float[] features) {
-        this.id = id;
-        this.storage_name = storage_name;
-        this.real_name = real_name;
-        this.status = status;
-        this.features = features;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getStorage_name() {
-        return storage_name;
-    }
-
-    public String getReal_name() {
-        return real_name;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public float[] getFeatures() {
-        return Arrays.copyOf(features, features.length);
-    }
-}
-
-class TaskManagerException extends Exception {
-    public TaskManagerException() {}
-
-    public TaskManagerException(String message) {
-        super(message);
-    }
-}
