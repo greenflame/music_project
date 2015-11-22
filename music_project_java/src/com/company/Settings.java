@@ -12,6 +12,7 @@ public class Settings {
 
     // Storage info
     static final String STORAGE_PATH = "g:\\http\\ask\\ms\\alpha\\storage\\";
+    static final String RELATIVE_STORAGE_PATH = "storage/";
 
     // Recommendation system settings
     static final int RECOMMENDATION_FILES_COUNT = 3;

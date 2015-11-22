@@ -1,12 +1,14 @@
 package com.company;
 
 import com.mathworks.toolbox.javabuilder.MWNumericArray;
+import jdk.nashorn.internal.objects.NativeArray;
 import matlabModule.Indexer;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.nio.file.Files;
 import java.sql.*;
 import java.util.Arrays;
 import java.util.Locale;
@@ -85,6 +87,23 @@ public class TaskManager {
         connection.close();
     }
 
+    private JSONObject AudioFileToJson(long file_id) throws SQLException {
+        AudioFile file = AudioManager.GetAudioFile(file_id);
+        JSONObject file_j = new JSONObject();
+
+        file_j.put("name", file.getReal_name().replaceFirst("[.][^.]+$", ""));
+        file_j.put("url", Settings.RELATIVE_STORAGE_PATH + file.getStorage_name());
+
+        JSONArray features_j = new JSONArray();
+        for (int i = 0; i < file.getFeatures().length; i++) {
+            features_j.add(file.getFeatures()[i]);
+        }
+
+        file_j.put("features", features_j);
+
+        return file_j;
+    }
+
     public String ComputeOutput(String input_s) throws TaskManagerException, SQLException {
         JSONParser parser = new JSONParser();
         JSONObject input;
@@ -105,15 +124,17 @@ public class TaskManager {
                 throw new TaskManagerException("Indexation error.");
             }
 
-            float[] features = AudioManager.GetAudioFile(fileId).getFeatures();
+
+            Long[] recommendations = AudioManager.RecommendAudioFiles(fileId);
 
             JSONObject output = new JSONObject();
-            JSONArray features_j = new JSONArray();
-            for (int i = 0; i < features.length; i++) {
-                features_j.add(features[i]);
-            }
+            output.put("original_track", AudioFileToJson(recommendations[0]));
 
-            output.put("features", features_j);
+            JSONArray files_j = new JSONArray();
+            for (int i = 1; i < recommendations.length; i++) {
+                files_j.add(AudioFileToJson(recommendations[i]));
+            }
+            output.put("similar_tracks", files_j);
 
             return output.toJSONString();
         } else {

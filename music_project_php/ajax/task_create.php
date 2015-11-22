@@ -16,6 +16,12 @@
 	include("useful.php");
 	include("settings.php");
 
+	// if ($_SERVER['CONTENT_LENGTH'] > 25000000)
+	// {
+	// 	$resp = array("status" => "error", "error_msg" => "File size must be less then 25mb.");
+	// 	die(json_encode($resp));
+	// }
+
     if (isset($_FILES['file']['error']) && !is_array($_FILES['file']['error']))	// Accepting file
 	{
 		// Moving file to storage

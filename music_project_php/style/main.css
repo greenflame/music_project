@@ -53,7 +53,7 @@ p
 	cursor: pointer;
 }
 
-.navidation-item:hover
+.navigation-item:hover
 {
 	color: rgb(200, 25, 25);
 }
@@ -139,6 +139,21 @@ p
 	cursor: pointer;
 }
 
+#load-animation
+{
+	vertical-align: middle;
+	padding-bottom: 10px;
+}
+
+#label_status
+{
+	vertical-align: middle;
+
+    color: #536e7b;
+	font-weight: 400;
+	font-size: 1.1rem;
+}
+
 .recomendations-title
 {
 	padding-bottom: 50px;
@@ -160,7 +175,12 @@ p
 	display: block;
 }
 
-.play-button
+.play-stop
+{
+	display: inline-block;
+}
+
+.play-button, .stop-button
 {
 	vertical-align: middle;
 

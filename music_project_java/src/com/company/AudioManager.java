@@ -136,12 +136,17 @@ public final class AudioManager {
         }
     }
 
+    /**
+     * @param id of track recommend for
+     * @return array of recommended ids
+     * @throws SQLException
+     */
     public static Long[] RecommendAudioFiles(long id) throws SQLException {
         AudioFile toRecommend = GetAudioFile(id);
 
         Connection connection = DriverManager.getConnection(Settings.connectionString());
         Statement statement = connection.createStatement();
-        String sql = String.format(
+        String sql = String.format(Locale.US,
                 "SELECT id,\n" +
                 "(ABS(p1 - %f) + ABS(p2 - %f) + ABS(p3 - %f) + ABS(p4 - %f) + ABS(p5 - %f) + ABS(p6 - %f)) as distance,\n" +
                 "(p1 + p2 + p3 + p4 + p5 + p6) as hash\n" +
@@ -152,8 +157,8 @@ public final class AudioManager {
                 toRecommend.getFeatures()[3],
                 toRecommend.getFeatures()[4],
                 toRecommend.getFeatures()[5],
-                Settings.RECOMMENDATION_FILES_COUNT
-                );   // todo not select file to recommend
+                Settings.RECOMMENDATION_FILES_COUNT + 1 // First record - original file
+                );
 
         ResultSet resultSet = statement.executeQuery(sql);
 
