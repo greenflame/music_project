@@ -1,6 +1,6 @@
 /*
  * MATLAB Compiler: 6.0 (R2015a)
- * Date: Wed Nov 18 17:30:40 2015
+ * Date: Tue Nov 24 12:05:54 2015
  * Arguments: "-B" "macro_default" "-W" "java:matlabModule,Indexer" "-T" "link:lib" "-d" 
  * "g:\\music_project\\music_project_matlab\\matlabModule\\for_testing" 
  * "class{Indexer:g:\\music_project\\music_project_matlab\\analyse.m}" 
@@ -19,7 +19,7 @@ public class MatlabModuleMCRFactory
    
     
     /** Component's uuid */
-    private static final String sComponentId = "matlabModule_BEF3D458F8B138F4198F6AF679E8D781";
+    private static final String sComponentId = "matlabModule_BF1AF9F479432AE743040D8EC841FFF9";
     
     /** Component name */
     private static final String sComponentName = "matlabModule";

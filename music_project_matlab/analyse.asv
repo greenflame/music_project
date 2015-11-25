@@ -1,5 +1,5 @@
-function res = analyse(filename)
-%     filename = 'y.mp3';
+% function res = analyse(filename)
+    filename = 'y.mp3';
     samplesPerSecond = 10;
     windowSize = 500;
     lines = 4000;
@@ -28,11 +28,12 @@ function res = analyse(filename)
     sFluxPeaksDensity = size(sfPeaksVals, 2) / (length * samplesPerSecond);
     s1 = sum(spectrum(1:500)) / 500;
     s2 = sum(spectrum(500:1000)) / 500;
-    s3 = sum(spectrum(1000:2000)) / 1000;
+    s3 = sum(spectrum(1000:1500)) / 500;
+    s4 = sum(spectrum(1500:2000)) / 500;
 
-    scaleVector = [1, 100, 100, 100, 100, 100];
-    featureVector = [length, spectrumDensity, sFluxPeaksDensity, s1, s2, s3];
+    scaleVector = [1, 200, 1, 1, 1, 1];
+    featureVector = [length, spectrogramDensity, sFluxPeaksDensity, sFluxDiffPeaksDensity, s1, p6];
     
     res = featureVector.*scaleVector;
     
-end
+% end

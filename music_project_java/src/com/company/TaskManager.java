@@ -1,17 +1,11 @@
 package com.company;
 
-import com.mathworks.toolbox.javabuilder.MWNumericArray;
-import jdk.nashorn.internal.objects.NativeArray;
-import matlabModule.Indexer;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.nio.file.Files;
 import java.sql.*;
-import java.util.Arrays;
-import java.util.Locale;
 
 /**
  * Created by Alexander on 10/11/15.
@@ -73,7 +67,7 @@ public class TaskManager {
      * @param output computing engine output
      * @throws SQLException
      */
-    private void FinishTask(long id, String status, String output) throws SQLException {
+    private void UpdateTaskStatusOutputFinished(long id, String status, String output) throws SQLException {
         Connection connection = DriverManager.getConnection(Settings.connectionString());
         Statement statement = connection.createStatement();
 
@@ -87,7 +81,7 @@ public class TaskManager {
         connection.close();
     }
 
-    private JSONObject AudioFileToJson(long file_id) throws SQLException {
+    private JSONObject AudioFileToJson(long file_id) throws SQLException {  // todo move to AFile class
         AudioFile file = AudioManager.GetAudioFile(file_id);
         JSONObject file_j = new JSONObject();
 
@@ -119,13 +113,13 @@ public class TaskManager {
             long fileId = (long) input.get("file_id");
 
             try {
-                AudioManager.IndexById(fileId);
+                AudioManager.IndexFileInStorage(fileId);
             } catch (AudioManagerException e) {
                 throw new TaskManagerException("Indexation error.");
             }
 
 
-            Long[] recommendations = AudioManager.RecommendAudioFiles(fileId);
+            Long[] recommendations = AudioManager.GetRecommendations(fileId);
 
             JSONObject output = new JSONObject();
             output.put("original_track", AudioFileToJson(recommendations[0]));
@@ -157,10 +151,10 @@ public class TaskManager {
             try {
                 String output = ComputeOutput(task.getInput());
 
-                FinishTask(task.getId(), "success", output);
+                UpdateTaskStatusOutputFinished(task.getId(), "success", output);
                 System.out.printf("Task committed. Success.\n");
             } catch (TaskManagerException e) {
-                FinishTask(task.getId(), "error", "");
+                UpdateTaskStatusOutputFinished(task.getId(), "error", "");
                 System.out.printf("Task committed. Error.\n");
             }
 

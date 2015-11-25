@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1
--- Время создания: Ноя 19 2015 г., 17:00
+-- Время создания: Ноя 25 2015 г., 15:49
 -- Версия сервера: 5.6.20
 -- Версия PHP: 5.5.15
 
@@ -30,6 +30,8 @@ CREATE TABLE IF NOT EXISTS `audiofiles` (
 `id` int(11) NOT NULL,
   `storage_name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   `real_name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `finished` datetime DEFAULT NULL,
   `status` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'in queue',
   `p1` float DEFAULT NULL,
   `p2` float DEFAULT NULL,
@@ -37,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `audiofiles` (
   `p4` float DEFAULT NULL,
   `p5` float DEFAULT NULL,
   `p6` float DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=265 ;
 
 -- --------------------------------------------------------
 
@@ -52,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `finished` datetime DEFAULT NULL,
   `status` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'in queue'
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=131 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=138 ;
 
 --
 -- Indexes for dumped tables
@@ -78,12 +80,12 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT for table `audiofiles`
 --
 ALTER TABLE `audiofiles`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=47;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=265;
 --
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=131;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=138;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

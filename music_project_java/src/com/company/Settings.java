@@ -13,9 +13,11 @@ public class Settings {
     // Storage info
     static final String STORAGE_PATH = "g:\\http\\ask\\ms\\alpha\\storage\\";
     static final String RELATIVE_STORAGE_PATH = "storage/";
+    static final int STORAGE_NAME_LENGTH = 10;
 
     // Recommendation system settings
-    static final int RECOMMENDATION_FILES_COUNT = 3;
+    static final int RECOMMENDATION_FILES_COUNT = 5;
+    static final float[] FEATURES_WEIGHT_VECTOR = { 0.01f, 2, 2, 1, 1, 1 };
 
     // Useful functions
     static public String connectionString() {

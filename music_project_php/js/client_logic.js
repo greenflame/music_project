@@ -301,8 +301,8 @@ function plotFeaturesChart(features, name) {
         },
 
         xAxis: {
-            categories: ['Duration', 'Spectrogram density', 'Feature 3', 'Feature 4',
-                    'Feature 5', 'Feature 6'],
+            categories: ['Duration', 'Spectrogram density', 'Spectrum flux peaks density', 'Low frequencies',
+                    'Middle frequencies', 'High frequencies'],
             tickmarkPlacement: 'on',
             lineWidth: 0
         },
@@ -315,7 +315,7 @@ function plotFeaturesChart(features, name) {
 
         tooltip: {
             shared: true,
-            pointFormat: '<span style="color:{series.color}">{series.name}: <b>_{point.y:,.0f}</b><br/>'
+            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.0f}</b><br/>'
         },
 
         legend: {

@@ -1,6 +1,6 @@
 /*
  * MATLAB Compiler: 6.0 (R2015a)
- * Date: Wed Nov 18 17:30:40 2015
+ * Date: Tue Nov 24 12:05:54 2015
  * Arguments: "-B" "macro_default" "-W" "java:matlabModule,Indexer" "-T" "link:lib" "-d" 
  * "g:\\music_project\\music_project_matlab\\matlabModule\\for_testing" 
  * "class{Indexer:g:\\music_project\\music_project_matlab\\analyse.m}" 
@@ -134,7 +134,7 @@ public class Indexer extends MWComponentInstance<Indexer>
      * the second input, also an instance of List, provides the input to the M-function.
      * <p>M-documentation as provided by the author of the M function:
      * <pre>
-     * % Reading file
+     * %     filename = 'y.mp3';
      * </pre>
      * </p>
      * @param lhs List in which to return outputs. Number of outputs (nargout) is
@@ -161,7 +161,7 @@ public class Indexer extends MWComponentInstance<Indexer>
      * the second input, also an Object array, provides the input to the M-function.
      * <p>M-documentation as provided by the author of the M function:
      * <pre>
-     * % Reading file
+     * %     filename = 'y.mp3';
      * </pre>
      * </p>
      * @param lhs array in which to return outputs. Number of outputs (nargout)
@@ -193,7 +193,7 @@ public class Indexer extends MWComponentInstance<Indexer>
      *
      * <p>M-documentation as provided by the author of the M function:
      * <pre>
-     * % Reading file
+     * %     filename = 'y.mp3';
      * </pre>
      * </p>
      * @param nargout Number of outputs to return.
