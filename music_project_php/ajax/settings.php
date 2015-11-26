@@ -4,4 +4,6 @@
 	$username = "root";
 	$password = "";
 	$dbname = "music_project";
+
+    $storagePath = "..\\storage\\";
 ?>

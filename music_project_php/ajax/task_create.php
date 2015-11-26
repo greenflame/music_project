@@ -43,7 +43,8 @@
 
 			// Add task
 			$task = array("task" => "analyse", "file_id" => $filedId);
-			$sql = sprintf("INSERT INTO `tasks` (`input`) VALUES ('%s');", json_encode($task));
+			$sql = sprintf("INSERT INTO `tasks` (`input`, `ip`) VALUES ('%s', '%s');",
+				json_encode($task), $_SERVER['REMOTE_ADDR']);
 			$result = $conn->query($sql);
 
 			if ($result)	// Task created
