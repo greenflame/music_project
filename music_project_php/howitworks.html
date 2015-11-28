@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+		<link rel="stylesheet" type="text/css" href="style/fonts.css">
+		<link rel="stylesheet" type="text/css" href="style/main.css">
+		<link rel="stylesheet" type="text/css" href="style/normalize.css">
+
+		<script src="js/jquery-2.1.4.min.js"></script>
+
+		<script src="js/highcharts.js"></script>
+		<script src="https://code.highcharts.com/highcharts-more.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+		<script src="js/client_logic.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<image src="pictures/logo.png">
+			<div class="navigation">
+				<a class="navigation-item" href="index.php">Upload</a>
+				<a class="navigation-item" href="howitworks.html">How it works</a>
+			</div>
+		</div>
+		
+		<div class="block-outer-first cloud">
+			<div class="block-inner">
+				<div class="cloud-item">Web UI</div>
+				<div class="cloud-item">Queue</div>
+				<div class="cloud-item">Task processor</div>
+				<div class="cloud-item">Audio manager</div>
+				<div class="cloud-item">Storage</div>
+				<div class="cloud-item">Indexer</div>
+				<div class="cloud-item">Recommendation system</div>							
+			</div>
+		</div>
+		
+		<div class="block-outer">
+			<div class="block-inner">
+				<div class="block-column-container">
+					<div class="block-column block-column-left">
+						<h2>Общая структура сервера</h2>
+						<p>
+							Сервер MusicSense состоит из четырех основных частей: Web UI, Queue, Task processor и Audio manager.
+						</p>
+						<p>
+							Web UI - пользовательской интерфейс. Его основная задача - передавать запросы в вычислительный модуль и отображать результат его работы.
+						</p>
+						<p>
+							Взаимодействие пользовательского интерфейса с вычислительным модулем осуществляется средствами объекта Queue. Операция индексации музыкального трека очень ресурсоемка. Ее одновременным выполнением может заниматься сильно ограниченное количество потоков, поэтому все запросы становятся в очередь.
+						</p>
+						<p>
+							Из очереди запросы попадают в распределительный модуль - Task processor. В зависимости от типа, запрос направляется дальше.
+						</p>
+					</div>
+					<div class="block-column block-column-right">
+						<h2>Вычислительный модуль</h2>
+						<p>
+							Самый распространенный тип запроса - запрос на поиск похожих треков. Его обработкой занимается ядро приложения - вычислительный модуль(Audio manager). В свою очередь он состоит из трёх частей: Storage, Indexer, Recommendation system.
+						</p>
+						<p>
+							Сначала загруженный трек попадает в хранилище(Storage) - высокоуровневый объект, представляющий собой словарь [трек] -> [набор описаний].
+						</p>
+						<p>
+							Затем индексатор(Indexer) вычисляет и присваивает записи уникальный вектор признаков, основываясь на ее спектрограмме.
+						</p>
+						<p>
+							После этого рекомендательный модуль сопоставляет набор признаков загруженного файла с другими треками, находящимися в хранилище и формирует список похожих музыкальных произведений, который обратно по цепочке передается на уровень пользовательского интерфейса.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+	</body>
+</html>

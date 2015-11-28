@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8">
+		
 		<link rel="stylesheet" type="text/css" href="style/fonts.css">
 		<link rel="stylesheet" type="text/css" href="style/main.css">
 		<link rel="stylesheet" type="text/css" href="style/normalize.css">
@@ -25,8 +27,8 @@
 		<div class="header">
 			<img src="pictures/logo.png">
 			<div class="navigation">
-				<div class="navigation-item">Upload track</div>
-				<div class="navigation-item">About</div>
+				<a class="navigation-item" href="index.php">Upload</a>
+				<a class="navigation-item" href="howitworks.html">How it works</a>
 			</div>
 		</div>
 
@@ -37,7 +39,7 @@
 					<div class="block-column block-column-left">
 						<h2>About MusicSense</h2>
 						<p>
-							Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+							MusicSense - сервис для поиска похожих музыкальных произведений на основе анализа спектрограмм.
 						</p>
 					</div>
 					<div class="block-column block-column-right">
