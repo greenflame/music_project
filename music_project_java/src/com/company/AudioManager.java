@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.sql.*;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -73,6 +70,7 @@ public final class AudioManager {
     public static AudioFile GetAudioFile(long file_id) throws SQLException {
         Connection connection = DriverManager.getConnection(Settings.connectionString());
         Statement statement = connection.createStatement();
+        statement.executeQuery("SET NAMES utf8");
         String sql = String.format("SELECT * FROM `audiofiles` WHERE `id` = %d", file_id);
         ResultSet resultSet = statement.executeQuery(sql);
 
@@ -218,6 +216,7 @@ public final class AudioManager {
         // Add db record
         Connection connection = DriverManager.getConnection(Settings.connectionString());
         Statement statement = connection.createStatement();
+        statement.executeQuery("SET NAMES utf8");
         String sql = String.format("INSERT INTO `audiofiles` (`storage_name`, `real_name`)" +
                 "VALUES ('%s', '%s')", storageName, file.getName());
 

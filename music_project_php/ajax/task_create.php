@@ -30,6 +30,7 @@
 		move_uploaded_file($_FILES['file']['tmp_name'], $storagePath . $storageName);
 
 		$conn = db_make_connection();
+		$conn->query("SET NAMES utf8");
 
 		// Add record about file to database
 		$sql = sprintf("INSERT INTO `audiofiles` (`storage_name`, `real_name`)

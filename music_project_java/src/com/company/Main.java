@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
         System.out.println("Command[server, infuse, reindex]:");
 
         Scanner scanner = new Scanner(System.in);

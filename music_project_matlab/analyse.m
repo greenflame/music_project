@@ -30,7 +30,7 @@ function res = analyse(filename)
     s2 = sum(spectrum(500:1000)) / 500;
     s3 = sum(spectrum(1000:2000)) / 1000;
 
-    scaleVector = [1, 100, 100, 100, 100, 100];
+    scaleVector = [1, 1000, 1000, 1000, 1000, 1000];
     featureVector = [length, spectrumDensity, sFluxPeaksDensity, s1, s2, s3];
     
     res = featureVector.*scaleVector;

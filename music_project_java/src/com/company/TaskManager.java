@@ -71,6 +71,7 @@ public class TaskManager {
         Connection connection = DriverManager.getConnection(Settings.connectionString());
         Statement statement = connection.createStatement();
 
+        statement.executeQuery("SET NAMES utf8");
         String sql = String.format("UPDATE `tasks` SET `output` = '%s', `finished` = CURRENT_TIMESTAMP," +
                 "`status` = '%s' WHERE `tasks`.`id` = %d",
                 output, status, id);

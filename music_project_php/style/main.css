@@ -141,6 +141,8 @@ a
 
 	color: white;
 	background-color: rgb(200, 25, 25);
+	
+	margin-bottom: 10px;
 }
 
 .try-button:hover
@@ -190,8 +192,9 @@ a
 	display: block;
 }
 
-.play-button
+.play-stop
 {
+	display: inline-block;
 	vertical-align: middle;
 
 	margin-right: 20px;
@@ -200,7 +203,7 @@ a
 
 .track-name
 {
-	line-height: 1.75rem;
+	/*line-height: 1.75rem;*/
 	font-weight: 500;
 	color: rgb(83, 110, 123);
 

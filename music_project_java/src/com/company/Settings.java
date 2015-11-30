@@ -10,8 +10,8 @@ public class Settings {
     static final String PASSWORD = "";
     static final String DBNAME = "music_project";
 
-    // Storage info
-    static final String STORAGE_PATH = "g:\\http\\ask\\ms\\alpha\\storage\\";
+    // Storage infose
+    static final String STORAGE_PATH = "g:\\http\\ask\\musicsense\\storage\\";
     static final String RELATIVE_STORAGE_PATH = "storage/";
     static final int STORAGE_NAME_LENGTH = 10;
 
@@ -21,7 +21,7 @@ public class Settings {
 
     // Useful functions
     static public String connectionString() {
-        return String.format("jdbc:mysql://%s/%s?user=%s&password=%s",
+        return String.format("jdbc:mysql://%s/%s?useUnicode=true&characterEncoding=utf-8&user=%s&password=%s",
                 Settings.SERVERNAME, Settings.DBNAME, Settings.USERNAME, Settings.PASSWORD);
     }
 }

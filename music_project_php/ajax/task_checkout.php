@@ -15,10 +15,13 @@
 */
 
 	include("useful.php");
-
+	
+	header("Content-Type: text/html; charset=UTF-8");
+	
 	if (isset($_POST["task_id"]) && is_numeric($_POST["task_id"]))	// Post correct
 	{
 		$conn = db_make_connection();
+		$conn->query("SET NAMES utf8");
 
 		$sql = sprintf("SELECT * FROM `tasks` WHERE `id` = %s", $_POST["task_id"]);
 		$result = $conn->query($sql);

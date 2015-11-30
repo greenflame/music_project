@@ -1,3 +1,9 @@
-Settins files:
+1. Install MATLAB runtime for R2015a.
+2. Install Apache + PHP + MySql.
+3. In php.ini enable file upload, increase file upload sise and post request size up to 30mb.
+4. Create databas by executing 'music_project.sql'.
+5. Setup db connection properties in settins files:
 - web_app/ajax/settings.php
 - settings class in java server
+6. In settings class in java server setup path to file storage("folder_with_web_app/storage").
+7. Run Apache server, compile and run java server.

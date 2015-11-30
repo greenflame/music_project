@@ -1,9 +1,9 @@
 /*
  * MATLAB Compiler: 6.0 (R2015a)
- * Date: Tue Nov 24 12:05:54 2015
+ * Date: Mon Nov 30 10:49:47 2015
  * Arguments: "-B" "macro_default" "-W" "java:matlabModule,Indexer" "-T" "link:lib" "-d" 
- * "g:\\music_project\\music_project_matlab\\matlabModule\\for_testing" 
- * "class{Indexer:g:\\music_project\\music_project_matlab\\analyse.m}" 
+ * "G:\\music_project\\music_project_matlab\\matlabModule\\for_testing" 
+ * "class{Indexer:G:\\music_project\\music_project_matlab\\analyse.m}" 
  */
 
 package matlabModule;
@@ -17,7 +17,7 @@ import java.rmi.RemoteException;
  * The <code>IndexerRemote</code> class provides a Java RMI-compliant interface to the 
  * M-functions from the files:
  * <pre>
- *  g:\\music_project\\music_project_matlab\\analyse.m
+ *  G:\\music_project\\music_project_matlab\\analyse.m
  * </pre>
  * The {@link #dispose} method <b>must</b> be called on a <code>IndexerRemote</code> 
  * instance when it is no longer needed to ensure that native resources allocated by this 

@@ -44,7 +44,14 @@ function task_create()
 
 function task_create_callback(data)
 {
-	var resp = jQuery.parseJSON(data);
+	var resp;
+	try
+	{
+		resp = jQuery.parseJSON(data);
+	} catch(e) {
+		onError("Error parsing task create json.");
+		return;
+	}
 
 	if (resp.status == "success")	// request execution
 	{
@@ -77,7 +84,13 @@ function upload_checkout()
 
 function upload_checkout_callback(data)
 {
-	var result = jQuery.parseJSON(data);
+	var result;
+	try {
+		result = jQuery.parseJSON(data);
+	} catch (e) {
+		onInfo("Error parsing json.");
+		clearInterval(upload_checkout_interval);
+	}
 
 	if (result.status == "success")
 	{
@@ -105,7 +118,14 @@ function task_checkout_callback(data, status)
 
 	if (status == "success")	// request transfer
 	{
-		var resp = jQuery.parseJSON(data);
+		var resp;
+		try
+		{
+			resp = jQuery.parseJSON(data);
+		} catch(e) {
+			onError("Error parsing task create json.");
+			return;
+		}
 
 		if (resp.request_status == "success")	// request execution
 		{
@@ -132,7 +152,7 @@ function task_checkout_callback(data, status)
 			}
 			else
 			{
-				onError("Task manager level error.");
+				onError("Server side error.");
 				return;
 			}
 		}
@@ -155,7 +175,7 @@ function onError(msg)
     clearInterval(task_checkout_interval);
     clearInterval(upload_checkout_interval);
 	console.log("Error: " + msg);
-	$("#label_status").html("Error occurred.");
+	$("#label_status").html("Error occurred: " + msg);
 
 	// Hide progress elements
 	$("#btn_send_file").show();

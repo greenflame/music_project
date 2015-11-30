@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="2254348284" file="g:\music_project\music_project_matlab\matlabModule.prj" location="g:\music_project\music_project_matlab" name="matlabModule" preferred-package-location="g:\music_project\music_project_matlab\matlabModule\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.library" target-name="Library Compiler">
+  <configuration build-checksum="4160703618" file="G:\music_project\music_project_matlab\matlabModule.prj" location="G:\music_project\music_project_matlab" name="matlabModule" preferred-package-location="G:\music_project\music_project_matlab\matlabModule\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.library" target-name="Library Compiler">
     <param.appname>matlabModule</param.appname>
     <param.icon />
     <param.icons />
@@ -110,9 +110,9 @@
     <fileset.resources />
     <fileset.package />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\matlabModule\for_testing" name="doc" optional="false">g:\music_project\music_project_matlab\matlabModule\for_testing\doc</file>
-      <file location="${PROJECT_ROOT}\matlabModule\for_testing" name="matlabModule.jar" optional="false">g:\music_project\music_project_matlab\matlabModule\for_testing\matlabModule.jar</file>
-      <file location="${PROJECT_ROOT}\matlabModule\for_testing" name="readme.txt" optional="true">g:\music_project\music_project_matlab\matlabModule\for_testing\readme.txt</file>
+      <file location="${PROJECT_ROOT}\matlabModule\for_testing" name="doc" optional="false">G:\music_project\music_project_matlab\matlabModule\for_testing\doc</file>
+      <file location="${PROJECT_ROOT}\matlabModule\for_testing" name="matlabModule.jar" optional="false">G:\music_project\music_project_matlab\matlabModule\for_testing\matlabModule.jar</file>
+      <file location="${PROJECT_ROOT}\matlabModule\for_testing" name="readme.txt" optional="true">G:\music_project\music_project_matlab\matlabModule\for_testing\readme.txt</file>
     </build-deliverables>
     <workflow />
     <matlab>

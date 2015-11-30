@@ -25,7 +25,7 @@
 		</form>
 
 		<div class="header">
-			<img src="pictures/logo.png">
+			<a href="index.php"><img src="pictures/logo.png"></a>
 			<div class="navigation">
 				<a class="navigation-item" href="index.php">Upload</a>
 				<a class="navigation-item" href="howitworks.html">How it works</a>
@@ -66,34 +66,9 @@
 					<div class="block-column block-column-right">
 		                <h2 class="recomendations-title">Similar tracks</h2>
 
-						<audio id="player" src="storage/MY2Ct5vgnY.mp3"></audio>
+						<audio id="player" src=""></audio>
 
 						<div id="track-list">
-
-							<div class="track-area">
-								<div id="' + strHash(url) + '" style="display: inline-block">
-									<img class="play-button" src="pictures/play.png" onclick="onPlayClick(\'' + url + '\')">
-									<img class="stop-button" src="pictures/stop.png" onclick="onStopClick(\'' + url + '\')" style="display:none">
-									</div>
-								<div class="track-name">name</div>
-								<div class="time">strDuration</div>
-							</div>
-
-							<div class="track-area">
-								<img class="play-button" src="pictures/play.png">
-								<div class="track-name">Lodit aut fugit, sed quia consequuntur</div>
-								<div class="time">12:34</div>
-							</div>
-							<div class="track-area">
-								<img class="play-button" src="pictures/play.png">
-								<div class="track-name">Rste natus error sit voluptatem</div>
-								<div class="time">12:34</div>
-							</div>
-							<div class="track-area">
-								<img class="play-button" src="pictures/play.png">
-								<div class="track-name">Fugiat quo voluptas nulla pariatur</div>
-								<div class="time">12:34</div>
-							</div>
 						</div>
 
 					</div>
